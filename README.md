@@ -23,15 +23,12 @@
     - [@chakra-ui/react](#chakra-uireact)
     - [@emotion/react](#emotionreact)
     - [@emotion/styled](#emotionstyled)
-    - [@reduxjs/toolkit](#reduxjstoolkit)
-    - [axios](#axios)
     - [clsx](#clsx)
     - [dompurify](#dompurify)
     - [lodash](#lodash)
     - [qs](#qs)
     - [react-hook-form](#react-hook-form)
     - [react-router-dom](#react-router-dom)
-    - [redux-saga](#redux-saga)
     - [yup](#yup)
   - [Hooks](#hooks)
     - [Device](#device)
@@ -59,10 +56,13 @@
 npm i minimist-react-library
 ```
 
-Some extra essential packages
+Some extra essential packages:
 
 ```bash
-npm i date-fns framer-motion
+npm i axios
+npm i date-fns
+npm i framer-motion
+npm i @reduxjs/toolkit redux-saga
 ```
 
 ## Constants
@@ -156,18 +156,6 @@ import {
 } from "minimist-react-library";
 ```
 
-### [@reduxjs/toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
-
-```js
-import { ReduxToolkit, ReduxToolkitType } from "minimist-react-library";
-```
-
-### [axios](https://www.npmjs.com/package/axios)
-
-```js
-import { axios, Axios, AxiosType } from "minimist-react-library";
-```
-
 ### [clsx](https://www.npmjs.com/package/clsx)
 
 ```js
@@ -202,12 +190,6 @@ import { ReactHookForm, ReactHookFormType } from "minimist-react-library";
 
 ```js
 import { ReactRouter, ReactRouterType } from "minimist-react-library";
-```
-
-### [redux-saga](https://www.npmjs.com/package/redux-saga)
-
-```js
-import { ReduxSaga, ReduxSagaType } from "minimist-react-library";
 ```
 
 ### [yup](https://www.npmjs.com/package/yup)
