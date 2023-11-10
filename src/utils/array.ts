@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { _ } from "minimist-react-library";
 
 /**
  * @param list any[ ]: is array of object
@@ -49,8 +49,8 @@ type ListType = "default" | "array" | "object" | undefined;
  * @param list
  * @param field
  * @param sortType "asc" | "desc", default is "asc"
- * @returns {} { isListValid, field, sortType, list }
- * @description this method only work on number list, string list & object list
+ * @returns object { isListValid, field, sortType, list }
+ * @description only work on number list, string list & object list
  */
 export const sortList = ({
   list,

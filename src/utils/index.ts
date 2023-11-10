@@ -1,3 +1,5 @@
 export * as Api from "./api";
 export * as Array from "./array";
-export * from "./lazyLoad";
+export * as Number from "./number";
+export * as React from "./react";
+export * as String from "./string";

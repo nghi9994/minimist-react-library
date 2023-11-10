@@ -5,6 +5,9 @@ interface Opts {
 }
 type Unpromisify<T> = T extends Promise<infer P> ? P : never;
 
+/**
+ * @description create a lazyLoad for React component
+ */
 export const lazyLoad = <
   T extends Promise<any>,
   U extends React.ComponentType<any>

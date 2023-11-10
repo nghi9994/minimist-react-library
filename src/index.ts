@@ -13,8 +13,12 @@ import type * as AxiosType from "axios";
 import axios, * as Axios from "axios";
 import type * as ClsxType from "clsx";
 import * as Clsx from "clsx";
+
 import * as DateFns from "date-fns";
 import type * as DateFnsType from "date-fns";
+import DateFnsLocaleEn from "date-fns/locale/en-US";
+import DateFnsLocaleVi from "date-fns/locale/vi";
+
 import type * as DompurifyType from "dompurify";
 import dompurify, * as Dompurify from "dompurify";
 import type * as LodashType from "lodash";
@@ -43,6 +47,8 @@ export {
   Clsx,
   ClsxType,
   DateFns,
+  DateFnsLocaleEn,
+  DateFnsLocaleVi,
   DateFnsType,
   dompurify,
   Dompurify,

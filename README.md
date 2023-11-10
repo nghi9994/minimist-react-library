@@ -1,15 +1,24 @@
 # Minimist React Library
 
+- A bundle of essential packages with custom utils to build a web application
+- (React + TypeScript + Vite + Storybook)
+- [Typescript Playground](https://playcode.io/typescript)
+- [Regex Playground](https://regex101.com/)
+- [Lorem](https://loremipsum.io/)
+
+---
+
 <b>Table of Contents</b>
 
 - [Minimist React Library](#minimist-react-library)
-  - [Overview](#overview)
+  - [Installation](#installation)
   - [Constants](#constants)
     - [EMAIL_REGEX](#email_regex)
+    - [HEX_COLOR_REGEX](#hex_color_regex)
     - [HTTP_HTTPS_REGEX](#http_https_regex)
     - [PASSWORD_REGEX](#password_regex)
     - [UUID_REGEX](#uuid_regex)
-    - [VIETNAMESE_PHONE_REGEX](#vietnamese_phone_regex)
+    - [VIETNAMESE_PHONE_NUMBER_REGEX](#vietnamese_phone_number_regex)
   - [Essential Packages:](#essential-packages)
     - [@chakra-ui/react](#chakra-uireact)
     - [@emotion/react](#emotionreact)
@@ -25,22 +34,33 @@
     - [react-router-dom](#react-router-dom)
     - [redux-saga](#redux-saga)
     - [yup](#yup)
+  - [Hooks](#hooks)
+    - [Device](#device)
+      - [useMediaQuery](#usemediaquery)
   - [Utils:](#utils)
+    - [Api](#api)
+      - [fetchData](#fetchdata)
     - [Array](#array)
       - [groupListByField](#grouplistbyfield)
       - [sortList](#sortlist)
-    - [fetchData](#fetchdata)
-    - [lazyLoad](#lazyload)
+    - [Number](#number)
+      - [numberWithComma](#numberwithcomma)
+    - [React](#react)
+      - [lazyLoad](#lazyload)
+    - [String](#string)
+      - [checkWordCountValid](#checkwordcountvalid)
+      - [convertHexToRgb](#converthextorgb)
+      - [convertStyleObjectToString](#convertstyleobjecttostring)
+      - [sanitizeHTML](#sanitizehtml)
+      - [trimText](#trimtext)
 
-## Overview
+## Installation
 
-- This is a bundle of essential packages with custom utils that are used to build a web application
-- (React + TypeScript + Vite + Storybook)
-- [Typescript Playground](https://playcode.io/typescript)
+```bash
+npm i minimist-react-library
+```
 
 ## Constants
-
-- [Regex check](https://regex101.com/)
 
 ### EMAIL_REGEX
 
@@ -50,6 +70,16 @@ import { CONSTANTS } from "minimist-react-library";
 const regex = CONSTANTS.EMAIL_REGEX;
 
 // regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+```
+
+### HEX_COLOR_REGEX
+
+```js
+import { CONSTANTS } from "minimist-react-library";
+
+const regex = CONSTANTS.HEX_COLOR_REGEX;
+
+// regex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 ```
 
 ### HTTP_HTTPS_REGEX
@@ -82,12 +112,12 @@ const regex = CONSTANTS.UUID_REGEX;
 // regex = /[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}/g;
 ```
 
-### VIETNAMESE_PHONE_REGEX
+### VIETNAMESE_PHONE_NUMBER_REGEX
 
 ```js
 import { CONSTANTS } from "minimist-react-library";
 
-const regex = CONSTANTS.VIETNAMESE_PHONE_REGEX;
+const regex = CONSTANTS.VIETNAMESE_PHONE_NUMBER_REGEX;
 
 // regex = /^(\+?)(0|84?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/gm;
 ```
@@ -142,7 +172,12 @@ import { Clsx, ClsxType } from "minimist-react-library";
 ### [date-fns](https://www.npmjs.com/package/date-fns)
 
 ```js
-import { DateFns, DateFnsType } from "minimist-react-library";
+import {
+  DateFns,
+  DateFnsType,
+  DateFnsLocaleEn,
+  DateFnsLocaleVi,
+} from "minimist-react-library";
 ```
 
 ### [dompurify](https://www.npmjs.com/package/dompurify)
@@ -187,7 +222,48 @@ import { ReduxSaga, ReduxSagaType } from "minimist-react-library";
 import { Yup, YupType } from "minimist-react-library";
 ```
 
+## Hooks
+
+### Device
+
+#### useMediaQuery
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const isMobile = Hooks.Device.useMediaQuery(769);
+const isTablet = Hooks.Device.useMediaQuery(1024);
+```
+
 ## Utils:
+
+### Api
+
+#### fetchData
+
+```js
+import { Utils } from "minimist-react-library";
+
+Utils.Api.fetchData({
+  requestCallback: async () => {
+    return await fetch("");
+  },
+  successCallback: (res) => {
+    // Handle if call api successfully
+  },
+  failureCallback: (error) => {
+    // Handle if call api failed
+  },
+  getLoadingState: (isLoading) => {
+    if (isLoading) {
+      // Toggle on loading component
+    } else {
+      // Toggle off loading component
+    }
+  },
+  showLog: true,
+});
+```
 
 ### Array
 
@@ -218,29 +294,21 @@ const data = Utils.Array.sortList({
 });
 ```
 
-### fetchData
+### Number
+
+#### numberWithComma
 
 ```js
 import { Utils } from "minimist-react-library";
 
-Utils.Api.fetchData({
-  requestCallback: async () => {
-    return await fetch("");
-  },
-  successCallback: (res) => {
-    console.log("@log res", res);
-  },
-  failureCallback: (error) => {
-    console.log("@log error", error);
-  },
-  getLoadingState: (loadingState) => {
-    console.log("@log loadingState", loadingState);
-  },
-  showLog: true,
-});
+const formattedNumber = Utils.Number.numberWithComma(55250.2);
+
+// 55,250.20
 ```
 
-### lazyLoad
+### React
+
+#### lazyLoad
 
 ```js
 import { Utils } from "minimist-react-library";
@@ -249,4 +317,63 @@ const Button = Utils.lazyLoad(
   () => import("./Button"),
   (module) => module.Button
 );
+```
+
+### String
+
+#### checkWordCountValid
+
+```js
+import { Utils } from "minimist-react-library";
+
+const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+const isTextValid = Utils.String.checkWordCountValid(text, 5, 30);
+
+// {isValid: true, maxWordRequired: 30, minWordRequired: 5, wordCount: 8}
+```
+
+#### convertHexToRgb
+
+```js
+import { Utils } from "minimist-react-library";
+
+const formattedNumber = Utils.String.numberWithComma(55250.2);
+
+// 55,250.20
+```
+
+#### convertStyleObjectToString
+
+```js
+import { Utils } from "minimist-react-library";
+
+const styleObject = {
+  color: "#000",
+  fontSize: "20px",
+};
+const cssString = Utils.String.convertStyleObjectToString(styleObject);
+
+// color:#000;font-size:20px;
+```
+
+#### sanitizeHTML
+
+```js
+import { Utils } from "minimist-react-library";
+
+const dirtyHTML = <p>This is dirty HTML</p>;
+const htmlText = Utils.String.sanitizeHTML(dirtyHTML);
+
+// <p>This is dirty HTML</p>
+```
+
+#### trimText
+
+```js
+import { Utils } from "minimist-react-library";
+
+const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+const isTextValid = Utils.String.trimText(text, 50);
+
+// {textLength: 56, textLengthRequired: 50, text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ...'}
 ```
