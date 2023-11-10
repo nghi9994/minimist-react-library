@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
  * @returns boolean
  * @description used for css responsive
  */
-export const useMediaQuery = (maxWidth: number) => {
+export const useResponsive = (maxWidth: number) => {
   const [state, setState] = useState({
     windowWidth: window.innerWidth,
     isDesiredWidth: false,

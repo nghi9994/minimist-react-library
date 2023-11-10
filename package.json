@@ -1,6 +1,6 @@
 {
   "name": "minimist-react-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {
@@ -37,7 +37,6 @@
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.0",
     "clsx": "^2.0.0",
-    "date-fns": "^2.30.0",
     "dompurify": "^3.0.6",
     "lodash": "^4.17.21",
     "qs": "^6.11.2",

@@ -7,7 +7,7 @@ import { CONSTANTS, dompurify } from "minimist-react-library";
  * @returns object
  * @description check whether text length meets requirement or not
  */
-export function checkWordCountValid(
+export function checkWordCount(
   text: string,
   minWordRequired?: number,
   maxWordRequired?: number

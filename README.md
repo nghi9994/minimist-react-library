@@ -1,7 +1,7 @@
 # Minimist React Library
 
 - A bundle of essential packages with custom utils to build a web application
-- (React + TypeScript + Vite + Storybook)
+- React + TypeScript + Vite + Storybook
 - [Typescript Playground](https://playcode.io/typescript)
 - [Regex Playground](https://regex101.com/)
 - [Lorem](https://loremipsum.io/)
@@ -13,12 +13,12 @@
 - [Minimist React Library](#minimist-react-library)
   - [Installation](#installation)
   - [Constants](#constants)
-    - [EMAIL_REGEX](#email_regex)
-    - [HEX_COLOR_REGEX](#hex_color_regex)
-    - [HTTP_HTTPS_REGEX](#http_https_regex)
-    - [PASSWORD_REGEX](#password_regex)
-    - [UUID_REGEX](#uuid_regex)
-    - [VIETNAMESE_PHONE_NUMBER_REGEX](#vietnamese_phone_number_regex)
+    - [EMAIL\_REGEX](#email_regex)
+    - [HEX\_COLOR\_REGEX](#hex_color_regex)
+    - [HTTP\_HTTPS\_REGEX](#http_https_regex)
+    - [PASSWORD\_REGEX](#password_regex)
+    - [UUID\_REGEX](#uuid_regex)
+    - [VIETNAMESE\_PHONE\_NUMBER\_REGEX](#vietnamese_phone_number_regex)
   - [Essential Packages:](#essential-packages)
     - [@chakra-ui/react](#chakra-uireact)
     - [@emotion/react](#emotionreact)
@@ -26,7 +26,6 @@
     - [@reduxjs/toolkit](#reduxjstoolkit)
     - [axios](#axios)
     - [clsx](#clsx)
-    - [date-fns](#date-fns)
     - [dompurify](#dompurify)
     - [lodash](#lodash)
     - [qs](#qs)
@@ -36,7 +35,7 @@
     - [yup](#yup)
   - [Hooks](#hooks)
     - [Device](#device)
-      - [useMediaQuery](#usemediaquery)
+      - [useResponsive](#useresponsive)
   - [Utils:](#utils)
     - [Api](#api)
       - [fetchData](#fetchdata)
@@ -48,7 +47,7 @@
     - [React](#react)
       - [lazyLoad](#lazyload)
     - [String](#string)
-      - [checkWordCountValid](#checkwordcountvalid)
+      - [checkWordCount](#checkwordcount)
       - [convertHexToRgb](#converthextorgb)
       - [convertStyleObjectToString](#convertstyleobjecttostring)
       - [sanitizeHTML](#sanitizehtml)
@@ -58,6 +57,12 @@
 
 ```bash
 npm i minimist-react-library
+```
+
+Some extra essential packages
+
+```bash
+npm i date-fns framer-motion
 ```
 
 ## Constants
@@ -169,17 +174,6 @@ import { axios, Axios, AxiosType } from "minimist-react-library";
 import { Clsx, ClsxType } from "minimist-react-library";
 ```
 
-### [date-fns](https://www.npmjs.com/package/date-fns)
-
-```js
-import {
-  DateFns,
-  DateFnsType,
-  DateFnsLocaleEn,
-  DateFnsLocaleVi,
-} from "minimist-react-library";
-```
-
 ### [dompurify](https://www.npmjs.com/package/dompurify)
 
 ```js
@@ -226,13 +220,13 @@ import { Yup, YupType } from "minimist-react-library";
 
 ### Device
 
-#### useMediaQuery
+#### useResponsive
 
 ```js
 import { Hooks } from "minimist-react-library";
 
-const isMobile = Hooks.Device.useMediaQuery(769);
-const isTablet = Hooks.Device.useMediaQuery(1024);
+const isMobile = Hooks.Device.useResponsive(769);
+const isTablet = Hooks.Device.useResponsive(1024);
 ```
 
 ## Utils:
@@ -321,13 +315,13 @@ const Button = Utils.lazyLoad(
 
 ### String
 
-#### checkWordCountValid
+#### checkWordCount
 
 ```js
 import { Utils } from "minimist-react-library";
 
 const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-const isTextValid = Utils.String.checkWordCountValid(text, 5, 30);
+const isTextValid = Utils.String.checkWordCount(text, 5, 30);
 
 // {isValid: true, maxWordRequired: 30, minWordRequired: 5, wordCount: 8}
 ```
@@ -373,7 +367,7 @@ const htmlText = Utils.String.sanitizeHTML(dirtyHTML);
 import { Utils } from "minimist-react-library";
 
 const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-const isTextValid = Utils.String.trimText(text, 50);
+const newText = Utils.String.trimText(text, 50);
 
 // {textLength: 56, textLengthRequired: 50, text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ...'}
 ```
