@@ -20,9 +20,6 @@
     - [UUID\_REGEX](#uuid_regex)
     - [VIETNAMESE\_PHONE\_NUMBER\_REGEX](#vietnamese_phone_number_regex)
   - [Essential Packages:](#essential-packages)
-    - [@chakra-ui/react](#chakra-uireact)
-    - [@emotion/react](#emotionreact)
-    - [@emotion/styled](#emotionstyled)
     - [clsx](#clsx)
     - [dompurify](#dompurify)
     - [lodash](#lodash)
@@ -61,7 +58,7 @@ Some extra essential packages:
 ```bash
 npm i axios
 npm i date-fns
-npm i framer-motion
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 npm i @reduxjs/toolkit redux-saga
 ```
 
@@ -128,33 +125,6 @@ const regex = CONSTANTS.VIETNAMESE_PHONE_NUMBER_REGEX;
 ```
 
 ## Essential Packages:
-
-### [@chakra-ui/react](https://www.npmjs.com/package/@chakra-ui/react)
-
-```js
-import {
-  ChakraProvider,
-  ChakraType,
-  Container,
-  Text,
-} from "minimist-react-library";
-```
-
-### [@emotion/react](https://www.npmjs.com/package/@emotion/react)
-
-```js
-import { EmotionReact, EmotionReactType } from "minimist-react-library";
-```
-
-### [@emotion/styled](https://www.npmjs.com/package/@emotion/styled)
-
-```js
-import {
-  EmotionStyled,
-  EmotionStyledType,
-  styled,
-} from "minimist-react-library";
-```
 
 ### [clsx](https://www.npmjs.com/package/clsx)
 
