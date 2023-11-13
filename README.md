@@ -28,8 +28,18 @@
     - [react-router-dom](#react-router-dom)
     - [yup](#yup)
   - [Hooks](#hooks)
+    - [Data](#data)
+      - [useArray](#usearray)
+      - [useToggle](#usetoggle)
     - [Device](#device)
+      - [useEventListener](#useeventlistener)
       - [useResponsive](#useresponsive)
+      - [useScroll](#usescroll)
+      - [useWindowSize](#usewindowsize)
+    - [Dom](#dom)
+      - [useOnScreen](#useonscreen)
+    - [Storage](#storage)
+      - [useLocalStorage, useSessionStorage](#uselocalstorage-usesessionstorage)
   - [Utils:](#utils)
     - [Api](#api)
       - [fetchData](#fetchdata)
@@ -170,7 +180,43 @@ import { Yup, YupType } from "minimist-react-library";
 
 ## Hooks
 
+### Data
+
+#### useArray
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const { array, set, push, remove, filter, update, clear } = Hooks.Data.useArray(
+  [1, 2, 3, 4, 5, 6]
+);
+```
+
+#### useToggle
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const [value, toggleValue] = Hooks.Data.useToggle(false);
+
+return (
+  <>
+    <button onClick={toggleValue}>Toggle</button>
+    <button onClick={() => toggleValue(true)}>Make True</button>
+    <button onClick={() => toggleValue(false)}>Make False</button>
+  </>
+);
+```
+
 ### Device
+
+#### useEventListener
+
+```js
+import { Hooks } from "minimist-react-library";
+
+Hooks.Device.useEventListener("scroll", callback);
+```
 
 #### useResponsive
 
@@ -179,6 +225,47 @@ import { Hooks } from "minimist-react-library";
 
 const isMobile = Hooks.Device.useResponsive(769);
 const isTablet = Hooks.Device.useResponsive(1024);
+```
+
+#### useScroll
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const isScrolling = Hooks.Device.useScroll();
+```
+
+#### useWindowSize
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const { width, height } = Hooks.Device.useWindowSize();
+```
+
+### Dom
+
+#### useOnScreen
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const buttonRef = useRef();
+const isVisible = Hooks.Dom.useOnScreen(buttonRef);
+```
+
+### Storage
+
+#### useLocalStorage, useSessionStorage
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const [name, setName, removeName] = Hooks.Storage.useSessionStorage(
+  "name",
+  "Happy"
+);
+const [age, setAge, removeAge] = Hooks.Storage.useLocalStorage("age", 26);
 ```
 
 ## Utils:

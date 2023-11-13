@@ -19,7 +19,6 @@
     "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "minimist-react-library": ["src/index.ts"],
       "@/*": ["src/*"]
     },
     "typeRoots": ["node_modules/@types", "src/index.d.ts"]

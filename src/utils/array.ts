@@ -1,4 +1,4 @@
-import { _ } from "minimist-react-library";
+import _ from "lodash";
 
 /**
  * @param list any[ ]: is array of object
@@ -28,7 +28,7 @@ export const groupListByField = ({
   }
 
   // Create unique list of field
-  const uniqueFields = _.uniqBy(list, field).map((item) => item[field]);
+  const uniqueFields = _.uniqBy(list, field).map((item: any) => item[field]);
 
   // Return new list with items for each groupBy field
   for (let uniqueField of uniqueFields) {

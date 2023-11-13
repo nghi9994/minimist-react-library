@@ -7,9 +7,6 @@ import * as packageJson from "./package.json";
 
 export default defineConfig(() => ({
   build: {
-    esbuild: {
-      minify: true,
-    },
     lib: {
       entry: resolve("src", "index.ts"),
       name: "minimist-react-library",
@@ -20,13 +17,9 @@ export default defineConfig(() => ({
     optimizeDeps: {
       exclude: Object.keys(packageJson.peerDependencies),
     },
+    outDir: "dist",
     rollupOptions: {
-      onwarn(warning, warn) {
-        if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
-          return;
-        }
-        warn(warning);
-      },
+      external: ["react", "react-dom"],
     },
   },
   plugins: [
@@ -46,5 +39,6 @@ export default defineConfig(() => ({
       "@/stories": resolve(__dirname, "./src/stories"),
       "@/utils": resolve(__dirname, "./src/utils"),
     },
+    dedupe: ["react", "react-dom"],
   },
 }));

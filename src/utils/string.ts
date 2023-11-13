@@ -1,4 +1,5 @@
-import { CONSTANTS, dompurify } from "minimist-react-library";
+import dompurify from "dompurify";
+import * as CONSTANTS from "@/constants";
 
 /**
  * @param text string
