@@ -223,8 +223,8 @@ Hooks.Device.useEventListener("scroll", callback);
 ```js
 import { Hooks } from "minimist-react-library";
 
-const isMobile = Hooks.Device.useResponsive(769);
-const isTablet = Hooks.Device.useResponsive(1024);
+const isMobile = Hooks.Device.useResponsive({ maxWidth: 769 });
+const isTablet = Hooks.Device.useResponsive({ minWidth: 769, maxWidth: 1024 });
 ```
 
 #### useScroll

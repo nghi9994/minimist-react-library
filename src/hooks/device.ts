@@ -32,7 +32,13 @@ export function useEventListener(
  * @returns boolean
  * @description used for css responsive
  */
-export function useResponsive(maxWidth: number) {
+export function useResponsive({
+  minWidth = 0,
+  maxWidth,
+}: {
+  minWidth?: number;
+  maxWidth: number;
+}) {
   const [state, setState] = useState({
     windowWidth: window.innerWidth,
     isDesiredWidth: false,
@@ -40,7 +46,8 @@ export function useResponsive(maxWidth: number) {
 
   const resizeHandler = () => {
     const currentWindowWidth = window.innerWidth;
-    const isDesiredWidth = currentWindowWidth < maxWidth;
+    const isDesiredWidth =
+      currentWindowWidth >= minWidth && currentWindowWidth <= maxWidth;
     setState({ windowWidth: currentWindowWidth, isDesiredWidth });
   };
 
