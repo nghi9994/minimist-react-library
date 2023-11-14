@@ -32,8 +32,9 @@
       - [useArray](#usearray)
       - [useToggle](#usetoggle)
     - [Device](#device)
+      - [useDeviceDetect](#usedevicedetect)
       - [useEventListener](#useeventlistener)
-      - [useResponsive](#useresponsive)
+      - [useResponsive (depreciated)](#useresponsive-depreciated)
       - [useScroll](#usescroll)
       - [useWindowSize](#usewindowsize)
     - [Dom](#dom)
@@ -210,6 +211,14 @@ return (
 
 ### Device
 
+#### useDeviceDetect
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const { isMobile } = Hooks.Device.useDeviceDetect();
+```
+
 #### useEventListener
 
 ```js
@@ -218,14 +227,7 @@ import { Hooks } from "minimist-react-library";
 Hooks.Device.useEventListener("scroll", callback);
 ```
 
-#### useResponsive
-
-```js
-import { Hooks } from "minimist-react-library";
-
-const isMobile = Hooks.Device.useResponsive({ maxWidth: 769 });
-const isTablet = Hooks.Device.useResponsive({ minWidth: 769, maxWidth: 1024 });
-```
+#### useResponsive (depreciated)
 
 #### useScroll
 

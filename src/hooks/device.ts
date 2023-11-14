@@ -1,6 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
+ * @returns object {isMobile}
+ * @description detect which device you are using
+ */
+export function useDeviceDetect() {
+  const [isMobile, setMobile] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    const userAgent =
+      typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+    const mobile = Boolean(
+      userAgent.match(
+        /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+      )
+    );
+    setMobile(mobile);
+  }, []);
+
+  return { isMobile };
+}
+
+/**
  * @param eventType
  * @param callback
  * @param element optional DOM to add event listener
@@ -25,35 +46,6 @@ export function useEventListener(
 
     return () => element.removeEventListener(eventType, handler);
   }, [eventType, element]);
-}
-
-/**
- * @param maxWidth
- * @returns boolean
- * @description used for css responsive
- */
-export function useResponsive({
-  minWidth = 0,
-  maxWidth,
-}: {
-  minWidth?: number;
-  maxWidth: number;
-}) {
-  const [state, setState] = useState({
-    windowWidth: window.innerWidth,
-    isDesiredWidth: false,
-  });
-
-  const resizeHandler = () => {
-    const currentWindowWidth = window.innerWidth;
-    const isDesiredWidth =
-      currentWindowWidth >= minWidth && currentWindowWidth <= maxWidth;
-    setState({ windowWidth: currentWindowWidth, isDesiredWidth });
-  };
-
-  useEventListener("resize", resizeHandler);
-
-  return state.isDesiredWidth;
 }
 
 /**
