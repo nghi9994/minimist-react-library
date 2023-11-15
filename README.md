@@ -47,6 +47,8 @@
     - [Array](#array)
       - [groupListByField](#grouplistbyfield)
       - [sortList](#sortlist)
+    - [Data](#data-1)
+      - [downloadFile](#downloadfile)
     - [Number](#number)
       - [numberWithComma](#numberwithcomma)
     - [React](#react)
@@ -327,6 +329,19 @@ const data = Utils.Array.sortList({
   field: "name",
   sortType: "desc",
 });
+```
+
+### Data
+
+#### downloadFile
+
+```js
+import { Utils } from "minimist-react-library";
+
+const { downloadFile, DOWNLOAD_LINK_SAMPLE } = Utils.Data;
+downloadFile(DOWNLOAD_LINK_SAMPLE);
+
+// 55,250.20
 ```
 
 ### Number
