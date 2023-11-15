@@ -35,15 +35,16 @@
       - [useToggle](#usetoggle)
     - [Device](#device)
       - [useDeviceDetect](#usedevicedetect)
-      - [useEventListener](#useeventlistener)
       - [useResponsive (depreciated)](#useresponsive-depreciated)
-      - [useScroll](#usescroll)
-      - [useWindowSize](#usewindowsize)
     - [Dom](#dom)
-      - [useOnScreen](#useonscreen)
-      - [useScroll](#usescroll-1)
+      - [useElementOnScreen](#useelementonscreen)
+      - [useEventListener](#useeventlistener)
     - [Storage](#storage)
       - [useLocalStorage, useSessionStorage](#uselocalstorage-usesessionstorage)
+    - [Window](#window)
+      - [useScrolling](#usescrolling)
+      - [useScrollTo](#usescrollto)
+      - [useWindowSize](#usewindowsize)
   - [Utils:](#utils)
     - [Api](#api)
       - [fetchData](#fetchdata)
@@ -225,55 +226,25 @@ import { Hooks } from "minimist-react-library";
 const { isMobile } = Hooks.Device.useDeviceDetect();
 ```
 
+#### useResponsive (depreciated)
+
+### Dom
+
+#### useElementOnScreen
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const buttonRef = useRef();
+const isVisible = Hooks.Dom.useElementOnScreen(buttonRef);
+```
+
 #### useEventListener
 
 ```js
 import { Hooks } from "minimist-react-library";
 
-Hooks.Device.useEventListener("scroll", callback);
-```
-
-#### useResponsive (depreciated)
-
-#### useScroll
-
-```js
-import { Hooks } from "minimist-react-library";
-
-const isScrolling = Hooks.Device.useScroll();
-```
-
-#### useWindowSize
-
-```js
-import { Hooks } from "minimist-react-library";
-
-const { width, height } = Hooks.Device.useWindowSize();
-```
-
-### Dom
-
-#### useOnScreen
-
-```js
-import { Hooks } from "minimist-react-library";
-
-const buttonRef = useRef();
-const isVisible = Hooks.Dom.useOnScreen(buttonRef);
-```
-
-#### useScroll
-
-```js
-import { Hooks } from "minimist-react-library";
-
-const buttonRef = useRef();
-const { scrollToElement, scrollTo } = Hooks.Dom.useScroll();
-
-scrollToElement(buttonRef);
-
-// Default is scroll to top
-scrollTo();
+Hooks.Dom.useEventListener("scroll", callback);
 ```
 
 ### Storage
@@ -288,6 +259,38 @@ const [name, setName, removeName] = Hooks.Storage.useSessionStorage(
   "Happy"
 );
 const [age, setAge, removeAge] = Hooks.Storage.useLocalStorage("age", 26);
+```
+
+### Window
+
+#### useScrolling
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const isScrolling = Hooks.Window.useScrolling();
+```
+
+#### useScrollTo
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const buttonRef = useRef();
+const { scrollToElement, scrollTo } = Hooks.Window.useScrollTo();
+
+scrollToElement(buttonRef);
+
+// Default is scroll to top
+scrollTo();
+```
+
+#### useWindowSize
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const { width, height } = Hooks.Window.useWindowSize();
 ```
 
 ## Utils:
