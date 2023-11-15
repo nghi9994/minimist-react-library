@@ -5,6 +5,7 @@
 - [Typescript Playground](https://playcode.io/typescript)
 - [Regex Playground](https://regex101.com/)
 - [Lorem](https://loremipsum.io/)
+- [Free Test Data](https://freetestdata.com/)
 
 ---
 
@@ -28,8 +29,9 @@
     - [react-router-dom](#react-router-dom)
     - [yup](#yup)
   - [Hooks](#hooks)
-    - [Data](#data)
+    - [Array](#array)
       - [useArray](#usearray)
+    - [Data](#data)
       - [useToggle](#usetoggle)
     - [Device](#device)
       - [useDeviceDetect](#usedevicedetect)
@@ -39,12 +41,13 @@
       - [useWindowSize](#usewindowsize)
     - [Dom](#dom)
       - [useOnScreen](#useonscreen)
+      - [useScroll](#usescroll-1)
     - [Storage](#storage)
       - [useLocalStorage, useSessionStorage](#uselocalstorage-usesessionstorage)
   - [Utils:](#utils)
     - [Api](#api)
       - [fetchData](#fetchdata)
-    - [Array](#array)
+    - [Array](#array-1)
       - [groupListByField](#grouplistbyfield)
       - [sortList](#sortlist)
     - [Data](#data-1)
@@ -183,17 +186,18 @@ import { Yup, YupType } from "minimist-react-library";
 
 ## Hooks
 
-### Data
+### Array
 
 #### useArray
 
 ```js
 import { Hooks } from "minimist-react-library";
 
-const { array, set, push, remove, filter, update, clear } = Hooks.Data.useArray(
-  [1, 2, 3, 4, 5, 6]
-);
+const { array, set, push, remove, filter, update, clear } =
+  Hooks.Array.useArray([1, 2, 3, 4, 5, 6]);
 ```
+
+### Data
 
 #### useToggle
 
@@ -256,6 +260,20 @@ import { Hooks } from "minimist-react-library";
 
 const buttonRef = useRef();
 const isVisible = Hooks.Dom.useOnScreen(buttonRef);
+```
+
+#### useScroll
+
+```js
+import { Hooks } from "minimist-react-library";
+
+const buttonRef = useRef();
+const { scrollToElement, scrollTo } = Hooks.Dom.useScroll();
+
+scrollToElement(buttonRef);
+
+// Default is scroll to top
+scrollTo();
 ```
 
 ### Storage

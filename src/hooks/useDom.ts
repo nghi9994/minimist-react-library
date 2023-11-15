@@ -22,3 +22,20 @@ export function useOnScreen(ref: MutableRefObject<any>, rootMargin = "0px") {
 
   return isVisible;
 }
+
+export function useScroll() {
+  const scrollToElement = (element: any) => {
+    if (!element) return;
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollTo = (top?: number, left?: number) => {
+    window.scrollTo({
+      top: top || 0,
+      left: left || 0,
+      behavior: "smooth",
+    });
+  };
+
+  return { scrollToElement, scrollTo };
+}

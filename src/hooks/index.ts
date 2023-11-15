@@ -1,4 +1,5 @@
-export * as Data from "./data";
-export * as Device from "./device";
-export * as Dom from "./dom";
-export * as Storage from "./storage";
+export * as Array from "./useArray";
+export * as Data from "./useData";
+export * as Device from "./useDevice";
+export * as Dom from "./useDom";
+export * as Storage from "./useStorage";
