@@ -1,6 +1,6 @@
 {
   "name": "minimist-react-library",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {

@@ -95,7 +95,6 @@ export const sortList = ({
 
   // Sort list
   sortedList.sort((a, b) => {
-    console.log("a[field]", a[field]);
     let firstValue = String(listType === "object" ? a[field] : a).toLowerCase();
     let secondValue = String(
       listType === "object" ? b[field] : b

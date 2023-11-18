@@ -1,11 +1,18 @@
 # Minimist React Library
 
-- A bundle of essential packages with custom utils to build a web application
-- React + TypeScript + Vite + Storybook
-- [Typescript Playground](https://playcode.io/typescript)
-- [Regex Playground](https://regex101.com/)
-- [Lorem](https://loremipsum.io/)
-- [Free Test Data](https://freetestdata.com/)
+🚀 Newer version [react-minimist-utils](https://www.npmjs.com/package/react-minimist-utils)
+
+A bundle of essential packages with custom utils to build a web application
+
+`React + TypeScript + Vite + Storybook`
+
+[Typescript Playground](https://playcode.io/typescript)
+
+[Regex Playground](https://regex101.com/)
+
+[Lorem](https://loremipsum.io/)
+
+[Free Test Data](https://freetestdata.com/)
 
 ---
 
@@ -14,12 +21,12 @@
 - [Minimist React Library](#minimist-react-library)
   - [Installation](#installation)
   - [Constants](#constants)
-    - [EMAIL\_REGEX](#email_regex)
-    - [HEX\_COLOR\_REGEX](#hex_color_regex)
-    - [HTTP\_HTTPS\_REGEX](#http_https_regex)
-    - [PASSWORD\_REGEX](#password_regex)
-    - [UUID\_REGEX](#uuid_regex)
-    - [VIETNAMESE\_PHONE\_NUMBER\_REGEX](#vietnamese_phone_number_regex)
+    - [EMAIL_REGEX](#email_regex)
+    - [HEX_COLOR_REGEX](#hex_color_regex)
+    - [HTTP_HTTPS_REGEX](#http_https_regex)
+    - [PASSWORD_REGEX](#password_regex)
+    - [UUID_REGEX](#uuid_regex)
+    - [VIETNAMESE_PHONE_NUMBER_REGEX](#vietnamese_phone_number_regex)
   - [Essential Packages:](#essential-packages)
     - [clsx](#clsx)
     - [dompurify](#dompurify)
